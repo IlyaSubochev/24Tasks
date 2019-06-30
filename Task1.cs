@@ -7,21 +7,29 @@ namespace Level1Space
     {
         public static int Squirrel(int N)
         {
-            double k = 1;
-            for (int i = 1; i <= N; i++)
-            k = i * k;
             int n = 0;
-            if (k>1.7E308) return n;
-            else
+            if (N == 0)
             {
-                while (k > 1)
+                n = 1;
+            }
+            else
+            { 
+                double k = 1;
+                for (int i = 1; i <= N; i++)
+                    k = i * k;  
+                if (double.IsInfinity(k)) 
+                return n;
+                else
                 {
-                    if (k <= 2147483647)
+                    while (k > 1)
                     {
-                        n = (int)k;
-                        k = k / 10;
+                        if (k <= 2147483647)
+                        {
+                            n = (int)k;
+                            k = k / 10;
+                        }
+                        else k = k / 10;
                     }
-                    else k = k / 10;
                 }
             }
             return n;
