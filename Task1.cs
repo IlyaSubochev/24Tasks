@@ -8,17 +8,17 @@ namespace Level1Space
         public static int squirrel(int N)
         {
             int n = 0;
-            if (N == 0)
+            if (N == 0 || N==1)
             {
                 n = 1;
             }
             else
-            { 
+            {
                 double k = 1;
                 for (int i = 1; i <= N; i++)
-                    k = i * k;  
-                if (double.IsInfinity(k)) 
-                return n;
+                    k = i * k;
+                if (double.IsInfinity(k))
+                    return n;
                 else
                 {
                     while (k > 1)
