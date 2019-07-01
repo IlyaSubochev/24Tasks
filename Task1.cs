@@ -5,7 +5,7 @@ namespace Level1Space
 {
     public static class Level1
     {
-        public static int Squirrel(int N)
+        public static int squirrel(int N)
         {
             int n = 0;
             if (N == 0)
