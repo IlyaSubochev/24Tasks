@@ -28,7 +28,11 @@ namespace Level1Space
             for (int i = 0; i < N; i++)
                 for (int j = 0; j < M; j++)
                     a[i, j] = 0;
-            for (int n = 0; n < battalion.Length; n = n + 2)
+            int t = 0;
+            if (battalion.Length % L == 0)
+                t = battalion.Length;
+            else t = battalion.Length / L;
+            for (int n = 0; n < t; n = n + 2)
             {
                 int i = battalion[n];
                 int j = battalion[n + 1];
