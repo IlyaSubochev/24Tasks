@@ -59,6 +59,7 @@ namespace Level1Space
             String s = Convert.ToString(sum);
             s = s.Replace(".", "");
             s = s.Replace("0", "");
+            s = s.Replace(",", "");
             return s;
         }
     }
