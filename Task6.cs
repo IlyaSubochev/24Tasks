@@ -106,6 +106,8 @@ namespace Level1Space
                     else if (a.Length > b.Length && position != 0 && a[position - 1] == ' ' && (a[a.Length-1] == b[b.Length-1]
                         || a[a.Length-1]=='.'))
                         Sequence[i] = 1;
+                    else if ( position == 0 && a.Length == b.Length)
+                        Sequence[i] = 1;
                     else
                         Sequence[i] = 0;
                 }    
