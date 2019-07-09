@@ -10,7 +10,7 @@ namespace Level1Space
             String Temp = "";
             bool flag = false;
             string[] ArrStringEqualize = s.Split(' ');
-            string[] ArrFind = new string[len];
+            string[] ArrFind = new string[ArrStringEqualize.Length];
             for (int i = 0; i < ArrStringEqualize.Length; i++)
             {
                 if ((i < ArrStringEqualize.Length - 1) && (ArrStringEqualize[i].Length + ArrStringEqualize[i + 1].Length) < len
@@ -74,11 +74,14 @@ namespace Level1Space
                     char[] a = ArrFindFix[i].ToCharArray();
                     char[] b = subs.ToCharArray();
                     int position = ArrFindFix[i].IndexOf(subs);
-                    if (position==0 && a[b.Length] == ' ')
+                    if (i < Sequence.Length - 1 && position ==0 && a[b.Length] == ' ')
                         Sequence[i] = 1;
-                    else if (position != 0 && a[position-1] == ' ' && a[position+b.Length]== ' ')
+                    else if (position == 0 && a[b.Length-1] == b[b.Length-1] && i == Sequence.Length-1)
                         Sequence[i] = 1;
-                    else if (position != 0 && a[position - 1] == ' ' && a[a.Length-1] == b[b.Length-1])
+                    else if (position != 0 && a[position-1] == ' ' && a[position+b.Length-1]== ' ')
+                        Sequence[i] = 1;
+                    else if (position != 0 && a[position - 1] == ' ' && (a[a.Length-1] == b[b.Length-1]
+                        || a[a.Length]=='.'))
                         Sequence[i] = 1;
                     else
                         Sequence[i] = 0;
