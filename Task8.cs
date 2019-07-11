@@ -29,6 +29,12 @@ namespace Level1Space
                     c[i]= k;
                 }
             }
+            bool SeqFlag = true;
+            for (int i = 0; i < a.Length; i++)
+                for (int j = i + 1; j < a.Length; j++)
+                    if (a[i] == a[j])
+                        SeqFlag = false;
+
             if (c.Length == 2 && a[0] == a[1])
             {
                 SeqNumber = (c[0] - c[1]) * c[1];
@@ -36,13 +42,13 @@ namespace Level1Space
             else if (c.Length == 2)
                 SeqNumber = c[0] * c[1];
 
-            if (c[0] * c[1] <= c[c.Length - 1] * c[c.Length - 2])
+            else if (c[0] * c[1] <= c[c.Length - 1] * c[c.Length - 2] || SeqFlag==true)
             {
                 SeqNumber = 1;
                 for (int i = 0; i < c.Length; i++)
                     SeqNumber = SeqNumber * c[i];
             }
-            else if (c[0] * c[1] > c[c.Length - 1] * c[c.Length - 2])
+            else if (c[0] * c[1] > c[c.Length - 1] * c[c.Length - 2] && a.Length<3)
             {
                 for (int i = 0; i < c.Length; i = i + 2)
                 {
@@ -53,7 +59,7 @@ namespace Level1Space
                     else
                         SeqNumber = SeqNumber * c[i];
                 }
-            }           
+            } 
             return SeqNumber;
         }
     }
