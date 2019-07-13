@@ -14,7 +14,7 @@ namespace Level1Space
             string res = "";
             double ValueVotes = 0;
             double max;
-            int k = 0;
+            int k = 1;
             double[] PerVotes = new double[N];
             for (int i = 0; i < N; i++)
                 ValueVotes = ValueVotes + Votes[i];
@@ -24,12 +24,16 @@ namespace Level1Space
             int maxFlag = 0;
             for (int i = 0; i < N; i++)
             {
-                if (max <= PerVotes[i])
+                if (max < PerVotes[i])
                 {
                     k = i + 1;
                     max = PerVotes[i];
-                    maxFlag++;
                 }
+            }
+            for (int i = 0; i < N; i++)
+            {
+                if (max == PerVotes[i])               
+                    maxFlag++;                
             }
             if (max > 50 && maxFlag==1)
                 res = "majority winner " + k;
