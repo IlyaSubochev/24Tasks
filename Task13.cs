@@ -13,7 +13,7 @@ namespace Level1Space
             for (int j = 1; j < N; j++)
             {
                 int[] TempTrack = new int[3];
-                
+
                 if (track[0][0] > track[j][0])
                 {
                     TempTrack = track[j];
@@ -21,8 +21,8 @@ namespace Level1Space
                     track[0] = TempTrack;
                 }
             }
-                while (DistL <= L)
-                {
+            while (DistL <= L)
+            {
                 if (i == N)
                 {
                     result = result + L - DistL;
@@ -30,7 +30,9 @@ namespace Level1Space
                 }
                 else
                 {
-                    if (i < N && DistL == track[i][0])
+                    if (DistL == L && track[track.Length-1][0] != L)                   
+                        DistL = DistL+1;
+                    else if (i < N && DistL == track[i][0])
                     {
                         if (N > 1 && DistL == track[i][0] && result == (track[0][1] + track[1][1]))
                         {
@@ -60,8 +62,8 @@ namespace Level1Space
                         result++;
                     }
                 }
-                   
-            }          
+
+            }
             return result;
         }
     }
