@@ -21,7 +21,6 @@ namespace Level1Space
                     track[0] = TempTrack;
                 }
             }
-            for (int j=0;j<3;j++) Console.WriteLine(track[0][j]);
                 while (DistL <= L)
                 {
                 if (i == N)
@@ -48,7 +47,6 @@ namespace Level1Space
                             result = result + (track[i][1] - (result - track[i][1] * (result / track[i][1])));
                             DistL++;
                         }
-                        //&& result > track[i][1] && result % (track[i][1] * 2) < 5
                         else if (DistL > track[i][1] && result < track[i][1] && result % (track[i][1] * 2) < 5)
                         {
                             result = result + (track[i][1] - result);
