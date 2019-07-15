@@ -42,7 +42,7 @@ namespace Level1Space
                         else if (DistL < track[i][1])
                         {
                             result = result + track[i][1] - DistL;
-                            DistL++;
+                            //DistL++;
                         }
                         else if (DistL > track[i][1] && result > track[i][1] && result % (track[i][1] * 2) < 5)
                         {
