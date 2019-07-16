@@ -9,6 +9,7 @@ namespace Level1Space
         {
             string[] ResItems = new string[N];
             int flag = 0;
+            string str = "";
             Array.Sort(items);
             for (int i = 0; i < N; i++)
             {
@@ -65,6 +66,18 @@ namespace Level1Space
                         break;
                     }
                 }
+            }
+            for (int i = 0; i < ResultItems.Length; i++)
+            {
+                for (int j = 0; j < ResultItems.Length; j++)
+                {
+                    if (Convert.ToInt32(ResultItems[i].Split(' ')[1]) > Convert.ToInt32(ResultItems[j].Split(' ')[1]))
+                    {
+                        str = ResultItems[j];
+                        ResultItems[j] = ResultItems[i];
+                        ResultItems[i] = str;
+                    }
+                }              
             }
             return ResultItems;
         }
