@@ -25,9 +25,7 @@ namespace Level1Space
                     else if (i < N - 1 && items[i].Split(' ')[0] == items[j].Split(' ')[0] && Temp == true)
                     {
                         ResItems[i] = items[i].Split(' ')[0] + ' '
-                        + Convert.ToString(Convert.ToInt32(items[j].Split(' ')[1])
-                        + Convert.ToInt32(ResItems[i].Split(' ')[1]));
-
+                        + Convert.ToString(Convert.ToInt32(items[j].Split(' ')[1]) + Convert.ToInt32(ResItems[i].Split(' ')[1]));
                     }
                     else if (i < N - 1 && items[i].Split(' ')[0] != items[j].Split(' ')[0] && Temp == false)
                         ResItems[i] = items[i];
@@ -37,10 +35,8 @@ namespace Level1Space
             }
             for (int i = 0; i < ResItems.Length - 1; i++)
             {
-
                 if (items[i].Split(' ')[0] == items[i + 1].Split(' ')[0])
                     ResItems[i + 1] = "0";
-
             }
             for (int i = 0; i < ResItems.Length; i++)
             {
