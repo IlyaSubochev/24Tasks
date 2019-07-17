@@ -77,7 +77,18 @@ namespace Level1Space
                         ResultItems[j] = ResultItems[i];
                         ResultItems[i] = str;
                     }
-                }              
+                }
+            }
+            for (int i = 0; i < ResultItems.Length - 1; i++)
+            {
+                if (Convert.ToInt32(ResultItems[i].Split(' ')[1]) == Convert.ToInt32(ResultItems[i + 1].Split(' ')[1])
+                    && ResultItems[i].Split(' ')[0].CompareTo(ResultItems[i + 1].Split(' ')[0]) > 0)
+                {
+                    str = ResultItems[i + 1];
+                    ResultItems[i + 1] = ResultItems[i];
+                    ResultItems[i] = str;
+                }
+
             }
             return ResultItems;
         }
