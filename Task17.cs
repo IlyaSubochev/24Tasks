@@ -13,6 +13,9 @@ namespace Level1Space
         public static string Result = "";
         public static string Add(string word)
         {
+            if (i>0)
+                return Redo[Redo.Count - 1] + word;
+            else
             return Undo[Undo.Count - 1] + word;
         }
         public static string Delete(int N, string word)
@@ -79,7 +82,7 @@ namespace Level1Space
                         UndoFlag = true;
                     }
                     else
-                        Result = Undo[Undo.Count - 1];
+                        Result = Undo[Undo.Count - 1];                    
                     break;
                 case "5":
                     if (Redo.Count > 1)
@@ -89,7 +92,7 @@ namespace Level1Space
                         Redo.RemoveAt(Redo.Count - 1);
                     }
                     else
-                    {
+                    {                        
                         Result = Redo[Redo.Count - 1];
                         i++;
                     }
