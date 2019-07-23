@@ -49,12 +49,14 @@ namespace Level1Space
                     Result = Add(command.Substring(2));
                     Undo.Add(Result);
                     UndoFlag = false;
+                    i = 0;
                     break;
                 case "2":
                     CheckUndoRedo(UndoFlag);
                     Result = Delete(Convert.ToInt32(command.Split(' ')[1]), Undo[Undo.Count - 1]);
                     Undo.Add(Result);
                     UndoFlag = false;
+                    i = 0;
                     break;
                 case "3":
                     int Pos = Convert.ToInt32(command.Split(' ')[1]);
@@ -66,7 +68,7 @@ namespace Level1Space
                         Result = Undo[Undo.Count - 1].Substring(Pos, 1);
                     break;
                 case "4":
-                    if (Undo.Count > 1 && i > 1)
+                    if (Undo.Count > 1 && i > 0)
                     {
                         Redo.Add(Undo[Undo.Count - 1]);
 
