@@ -60,7 +60,7 @@ namespace Level1Space
                     break;
                 case "3":
                     int Pos = Convert.ToInt32(command.Split(' ')[1]);
-                    if (Pos > Undo[Undo.Count - 1].Length)
+                    if (Pos > Undo[Undo.Count - 1].Length-1)
                     {
                         Result = "";
                     }
