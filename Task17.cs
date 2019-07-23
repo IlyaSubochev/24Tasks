@@ -45,29 +45,28 @@ namespace Level1Space
                     CheckUndoRedo(UndoFlag);
                     Result = Add(command.Substring(2));
                     Undo.Add(Result);
-                    UndoFlag = false;                                   
+                    UndoFlag = false;
                     break;
                 case "2":
                     CheckUndoRedo(UndoFlag);
                     Result = Delete(Convert.ToInt32(command.Split(' ')[1]), Undo[Undo.Count - 1]);
                     Undo.Add(Result);
-                    UndoFlag = false;                                   
+                    UndoFlag = false;
                     break;
                 case "3":
                     int Pos = Convert.ToInt32(command.Split(' ')[1]);
-                    if (Pos > Undo[Undo.Count-1].Length)
+                    if (Pos > Undo[Undo.Count - 1].Length)
                     {
                         Result = "";
                     }
                     else
-                        Result = Undo[Undo.Count-1].Substring(Pos,1);
-                    UndoFlag = false;
+                        Result = Undo[Undo.Count - 1].Substring(Pos, 1);
                     break;
                 case "4":
                     if (Undo.Count > 1 && i > 1)
                     {
                         Redo.Add(Undo[Undo.Count - 1]);
-                        
+
                         Result = Undo[Undo.Count - 1];
                         UndoFlag = true;
                         i = 0;
@@ -80,14 +79,14 @@ namespace Level1Space
                         UndoFlag = true;
                     }
                     else
-                        Result = Undo[Undo.Count - 1];                  
+                        Result = Undo[Undo.Count - 1];
                     break;
                 case "5":
                     if (Redo.Count > 1)
                     {
                         Undo.Add(Redo[Redo.Count - 1]);
                         Result = Redo[Redo.Count - 1];
-                        Redo.RemoveAt(Redo.Count - 1);                        
+                        Redo.RemoveAt(Redo.Count - 1);
                     }
                     else
                     {
