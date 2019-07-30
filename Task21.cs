@@ -5,43 +5,40 @@ using System.Collections.Generic;
 namespace Level1Space
 {
     public static class Level1
-    {
-        static int MaxT(int[] C, int k, int i)
+    {       
+        static List<int> transform(List <int> A)
         {
-            int Temp = C[i];             
-            for ( ; i <= k; i++)
-            {
-                if (Temp < C[i])
-                    Temp = C[i];                
-            }
-            return Temp;
-        }
-        static int[] transform(int[] C)
-        {
-            int [] D = new int[C.Length];
+            List <int> Clist = new List<int>();
             int k = 0;
-            for (int i = 0; i < C.Length; i++)
-            {
-                int Temp = 0;
-                for (int j = 0; j <= C.Length - i - 1; j++)
+            for (int i = 0; i < A.Count; i++)
+            {              
+                for (int j = 0; j <= A.Count - i - 1; j++)
                 {
                     k = i + j;
-                    Temp = MaxT(C, k, i);
-                }
-                D[D.Length  - i - 1] = Temp;
+                    int Temp = 0;
+                    for (int t = i; t <= k; t++)
+                    {
+                        if (Temp < A[t])
+                            Temp = A[t];
+                    }
+                    Clist.Add(Temp);
+                }                
             }
-            return D;
+            return Clist;
         }
         public static Boolean TransformTransform(int [] A, int N)
         {
             bool Result = false;
             int Sum = 0;
-            int[] B = new int[A.Length];
-            B = transform(A);           
-            B = transform(B);          
-            for (int i = 0; i < B.Length; i++)
-                Sum = Sum + B[i];
-            if (Sum % 2 == 0)
+            List <int> Alist = new List<int>();
+            List <int> Blist = new List<int>();
+            for (int i = 0; i < N; i++)
+                Alist.Add(A[i]);
+            Blist = transform(Alist);          
+            Blist = transform(Blist);            
+            for (int i = 0; i < Blist.Count; i++)
+                Sum = Sum + Blist[i];
+            if (Sum % 2 == 0 && Sum > 0)
                 Result = true;
             return Result;
         }
